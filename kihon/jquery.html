@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="blue">jQuery練習</h1>
+    <h2 id="subtitle">サブタイトル</h2>
+    <h3 id="change">クリック前</h3>
+    <div id="todaylunch"></div>
+    <div id="month"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function() {
+        // この下に自分の処理を追加! すべての処理はここに記述!
+        // h1タグをクリックしたら、色を青色に変える
+        $("#blue").on("click", function() {
+          $("#blue").css("color", "blue");
+        });
+
+        // h2タグでサブタイトルを用意する→クリックするとh2タグが追加される
+        $("#subtitle").on("click", function() {
+          $("#subtitle").after("<h2>追加されたタイトル</h2>");
+        });
+        // h3タグを用意して、クリックするとテキストが「クリック前」から「クリック後」に変わる
+        $("#change").on("click", function() {
+          $("#change").text("クリック後");
+        });
+
+        const x = ["あ", "か", "さ", "た", "な", "は"];
+        //          0     1    2     3    4     5  <- 配列で呼び出すときの番号＝インデックス
+        // 配列の1番左は0番目！ 値の取り出し方は、`配列名[インデックス]`
+        console.log(x[5]);
+
+        const menu = ["ハンバーグ", "からあげ", "塩鯖定食", "野菜炒め", "カレー", "パスタ"];
+        for (let i = 0; i < menu.length; i++) {
+          console.log(menu[i]);
+          // ブラウザ上に出すならこんな感じ（セレクタになるHTMLは別で用意してある前提）
+          $("#todaylunch").append("<li>" + menu[i] + "</li>");
+          // html上に出すのはこっちの書き方でも！バッククォート使えばこうも書ける
+          // $("#todaylunch").append(`<li>${menu[i]}</li>`);
+        }
+
+        // 1月〜12月までの各月を配列にして、変数monthで定義しよう
+        const month = ["１月", "２月", "３月", "４月", "５月", "６月", "７月", "８月", "９月", "１０月", "１１月", "１２月"];
+        // コンソールに配列を表示
+        console.log(month);
+        // 1月をブラウザに表示しよう
+        console.log(month[0]);
+        // 6月をブラウザに表示しよう
+
+        // 1月〜12月までの各月をpタグでブラウザ上に表示してみよう
+        for (i = 0; i < month.length; i++) {
+          // console.log(month[i]);
+          $("#month").append("<p>" + month[i] + "</p>");
+        }
+
+        const pet = {
+          name: "クロ",
+          age: 6,
+          breed: "パグ"
+        };
+
+        // 配列の呼び出し方
+        console.log(month[5]);
+        // オブジェクトのデータの呼び出し方
+        console.log(pet.name);
+
+        const companies = [
+          {
+            name: "M・ザッカーバーグ",
+            company: "Facebook",
+            year: 2004
+          },
+          {
+            name: "ジェフ・ベゾス",
+            company: "Amazon",
+            year: 1994
+          },
+          {
+            name: "ジャック・マー",
+            company: "Alibaba",
+            year: 1999
+          },
+          {
+            name: "S・ジョブズ",
+            company: "Apple",
+            year: 1976
+          }
+        ];
+
+        console.log(companies);
+        // Amazonの設立年をコンソールに表示してみよう
+        console.log(companies[1].year);
+      });
+    </script>
+  </body>
+</html>

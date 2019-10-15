@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja"">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>JavaScriptの練習</h1>
+    <script>
+      // ここにJSの処理を書いていきます
+      console.log("Hello!!");
+      console.log(1+"Hello");
+      console.log(1 + "100");
+      console.log(1 + 100);
+      // コンソールに計算結果を出力する
+      console.log(1 + 2 * 3);
+      // 7が出力される
+
+      // かっこを使った計算もできる
+      console.log((1 + 2) * 3);  // 9が出力される
+
+      // 文字列の結合
+      console.log("Hello" + "World");
+
+
+      // コンソールに出力してみよう
+      console.log(1 == "1");
+      console.log("hello" !== "HELLO");
+      console.log("world" == "WORLD");
+      console.log(6 > 6);
+      console.log(9 <= 7);
+
+
+      let age = "10";
+      let seibetu = "男性";
+
+      if (age >= 30 && age < 40 && seibetu == "女性") {
+        console.log("キャラメルマキアートどうぞ");
+      } else if (age >= 10 && age < 30){
+        console.log("タピオカミルクティーどうぞ");
+      } else if (age >= 30 && age < 50) {
+        console.log("カフェラテどうぞ");
+      } else {
+        console.log("ルイボスティーどうぞ");
+      }
+
+      for(i=0; i<=10; i++){
+        console.log(i + "回目の処理です");
+      }
+    </script>
+  </body>
+</html>

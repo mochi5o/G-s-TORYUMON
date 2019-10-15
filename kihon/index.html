@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // // JSのコード
+      // alert("日本語もOK！");
+      // console.log("Hello!!");
+      // // コンソールに計算結果を出力する
+      // console.log(1 + 2 * 3); // 7が出力される
+
+      // // かっこを使った計算もできる
+      // console.log((1 + 2) * 3); // 9が出力される
+
+      // // 文字列の結合
+      // console.log("Hello" + "World");
+      // console.log(1 + 100);
+      // console.log("1" + "100");
+      // console.log(1 + "100");
+      // console.log(1 + "Hello");
+
+      // const a = 1;
+      // let b = "hello";
+      // console.log(a);
+      // console.log(b);
+
+      // b = "world";
+      // console.log(b);
+      // // a = "3";
+      // // console.log(a);
+      // // 変数timeで、1年間を分換算した値をあらわしてください
+      // // const time = 365 * 24 * 60;
+      // const time = 525600;
+      // console.log(time);
+
+      // // myNameにあなたの名前、majorに専攻を入れて、"私の名前は〇〇です。専攻は〇〇です。"と出力してください
+      // var myName = "Maki";
+      // var major = "農学部";
+      // console.log("私の名前は" + myName + "です。専攻は" + major + "です。");
+      // // 変数myAgeに今のあなたの年齢を代入して、"私の年齢は〇〇歳です"と出力してください
+      // var myAge = 35;
+      // console.log("私の年齢は" + myAge + "歳です");
+
+      // // 続けて、同じくmyAgeを使って5年後のあなたの年齢を"5年後の私の年齢は〇〇歳です"と出力してください
+      // myAge = myAge + 5;
+      // console.log("5年後の私の年齢は" + myAge + "歳です");
+      // var amari = 5 % 2;
+      // console.log("5割る2のあまりは、" + amari + "です");
+
+      // console.log(1 == "1"); // true
+      // console.log("hello" !== "HELLO"); // true
+      // console.log("world" == "WORLD"); // false
+      // console.log(6 > 6); // false
+      // console.log(9 <= 7); //false
+
+      // let age = 25;
+      // if (age >= 20) {
+      //   // ageは20以上なので条件を満たし、下記の処理は実行される
+      //   console.log("とりあえず生ビールください！");
+      // }
+
+      // 別の条件をいくつでも続けて記述できる(else if)
+      // age = 19;
+      // if (age >= 20) {
+      //   // 条件を満たさないので、下記は実行されない
+      //   console.log("とりあえず生ビールください！");
+      // } else if (age < 20) {
+      //   // 条件を満たすので実行される
+      //   console.log("ソフトドリンクのメニューください");
+      // }
+
+      /*
+              ドリンクをお客さんの年代によって出し分けたいです
+              10代から20代までのお客さんにはタピオカミルクティー、
+              30代から40代の人にはカフェラテ、
+              それ以外の人には、ルイボスティー、
+              8歳、16歳、32歳、56歳の人のためのドリンクをそれぞれ表示させてください
+              */
+
+      // age = 32;
+      // sex = "男性";
+
+      // if (age >= 30 && age < 40 && sex == "女性") {
+      //   console.log("キャラメルマキアート");
+      // } else if (age >= 10 && age < 30) {
+      //   // 条件を満たさないので、下記は実行されない
+      //   console.log("タピオカミルクティー");
+      // } else if (age >= 30 && age < 50) {
+      //   // 条件を満たさないので、下記は実行されない
+      //   console.log("カフェラテ");
+      // } else {
+      //   // 最後は条件なしなので当てはまらない場合必ず実行される
+      //   console.log("ルイボスティー");
+      // }
+
+      // for (let i = 0; i <= 10; i++) {
+      //   // この中にi回目の繰り返しの時の処理を書きます
+      //   console.log(i + "回目の処理です");
+      // }
+
+      // function f(x) {
+      //   // 関数fを定義して、関数fはかっこの中のxを受け取ります
+      //   alert(x + 1); // 受け取った値xを使って、x + 1を表示
+      // }
+      // f(10);
+
+      // function hello(name) {
+      //   alert("こんにちは、" + name + "さん");
+      // }
+      // hello("maki");
+
+      // 関数の宣言
+      // function hikizan(a, b) {
+      //   const result = a - b;
+      //   console.log(result);
+      // }
+      // // 関数の実行
+      // hikizan(10, 7);
+
+      // // 繰り返しで出力
+      // function printNumber(n) {
+      //   for (i = 0; i <= n; i++) {
+      //     console.log(i);
+      //   }
+      // }
+      // printNumber(17);
+
+      // const ransuu1 = Math.random();
+      // console.log(ransuu1);
+
+      // 0~10までの乱数
+      const ransuu2 = Math.floor(Math.random() * 11);
+      console.log(ransuu2);
+
+      // 「10から100まで 乱数 js」 でググって書き方を調べた
+      for (i = 0; i < 10; i++) {
+        const ransuu3 = Math.floor(Math.random() * (99 + 1 - 40)) + 40;
+        console.log(ransuu3);
+      }
+    </script>
+  </body>
+</html>

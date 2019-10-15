@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>書籍検索API</h1>
+    <input type="text" id="name" />
+    <button id="btn">検索します</button>
+    <div id="result"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(function() {
+        $("#btn").on("click", function() {
+          // alert("ok");
+          let name = $("#name").val();
+          console.log(name);
+
+          const url = "https://www.googleapis.com/books/v1/volumes?q=" + name;
+          // getJSONメソッドでAPIから情報を取得
+          $.getJSON(url)
+            // 成功した時の処理。下記のdataの中にレスポンスが入っている
+            .done(function(data, textStatus, jqXHR) {
+              console.log(data);
+              console.log(data.items[0].volumeInfo.title);
+              // ブラウザに出力する処理
+              let title = data.items[0].volumeInfo.title;
+              $("#result").html("<p>書籍のタイトルは、" + title + "</p>");
+            })
+            // 取得に失敗した時
+            .fail(function(jqXHR, textStatus, errorThrown) {
+              // エラーだったらエラーの内容が出力される
+              console.log(jqXHR.status + textStatus + errorThrown);
+            })
+            .always(function() {
+              // 成功でも失敗でも出力
+              console.log("complete");
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

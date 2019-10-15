@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>おみくじづくり</title>
+  </head>
+
+  <body>
+    <button id="start">START!!</button>
+    <div id="result"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function() {
+        // この下に自分の処理を追加! すべての処理はここに記述!
+        // おみくじ作りの手順
+        // １ボタンをクリック
+        $("#start").on("click", function() {
+          // console.log("click!!");
+          const omikuji = Math.floor(Math.random() * 3);
+          // ２乱数を使って結果を条件分岐させる（0が出たら大吉、1が出たら中吉、2が出たら小吉）
+          if (omikuji == 0) {
+            console.log("大吉");
+            // ３条件分岐させたあと、結果をブラウザに出力する（jQuery）処理を実行する
+            $("#result").html("<p>大吉です！</p>");
+          } else if (omikuji == 1) {
+            console.log("中吉");
+            // ３条件分岐させたあと、結果をブラウザに出力する処理を実行する
+            $("#result").html("<p>中吉です！</p>");
+          } else if (omikuji == 2) {
+            console.log("小吉");
+            // ３条件分岐させたあと、結果をブラウザに出力する処理を実行する
+            $("#result").html("<p>大吉です！</p>");
+          }
+          // console.log(omikuji);
+        });
+        // ３条件分岐させたあと、結果をブラウザに出力する処理を実行する
+      });
+    </script>
+  </body>
+</html>

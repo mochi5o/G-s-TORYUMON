@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>カーセンサー</title>
+  </head>
+  <body>
+    <h1>カーセンサー</h1>
+    <input type="text" id="text" /><button id="btn">検索開始！</button>
+    <div id="view"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $("#btn").on("click", function() {
+        const text = $("#text").val();
+        const url = "http://webservice.recruit.co.jp/carsensor/usedcar/v1/?key=YOURKEY&format=json&model=" + text;
+        $.getJSON(url)
+          // 成功した時の処理。下記のdataの中にレスポンスが入っている
+          .done(function(data, textStatus, jqXHR) {
+            console.log(data.results.usedcar);
+            const cars = data.results.usedcar;
+            console.log(cars[0].model);
+            // ブラウザ上に出力するためのhtmlタグの文字列を入れる変数（＝箱）resultを用意する
+            let result = "";
+            // `バッククォートで囲むと文字列の続きで${変数}と書いて使える。いちいち文字列結合（＋）を使わなくてよくなる`;
+            for (let i = 0; i < cars.length; i++) {
+              result += `<div class="card col-xs-12 col-md-4">
+                                    <img class="card-img-top" src="${cars[i].photo.main.s}" alt="Card image cap" />
+                                    <div class="card-body">
+                                      <h4 class="card-title">
+                                        ${cars[i].model}
+                                      </h4>
+                                      <p class="card-text">category: ${cars[i].photo.main.caption}</p>
+                                      <a href="${cars[i].urls.pc}" class="btn btn-primary" target="blank">${cars[i].shop.name}</a>
+                                    </div>
+                                  </div>`;
+            }
+            // resultの中のhtmlタグを一気にid="view"の中につっこむ！
+            $("#view").html(result);
+          })
+          .fail(function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR.status + textStatus + errorThrown);
+          })
+          .always(function() {
+            console.log("complete");
+
+            "<a href='" + a + "'>" + b + "</a>";
+            `<a href="${a}">${b}</a>`;
+          });
+      });
+    </script>
+  </body>
+</html>

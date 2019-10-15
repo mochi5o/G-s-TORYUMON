@@ -1,0 +1,29 @@
+/* CSSのコメントアウトはこんな感じ（htmlとちょっと違う） */
+.main {
+  background-color: rgb(236, 221, 221);
+}
+.red {
+  color: red;
+}
+.yellow {
+  color: yellow;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.green {
+  color: green;
+}
+.list {
+  color: coral;
+}
+.image {
+  width: 200px;
+}
+/* 演習 redクラスの文字を太字にしてみよう */
+/* Hint：今あるスタイルに続けて書けるよ！ */
+
+/* クラスがつけられていないdemo.htmlのタグにクラスをつけて、
+そこにCSSを書いて装飾してみよう */
+
+/* 余裕のある人：divタグにクラスをつけて背景画像をつけてみよう */
+/* 余裕のある人：class名を使わずに他の方法でCSSを指定するやりかたを探してみよう */
+/* Hint: タグ, id, などなど */

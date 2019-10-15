@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>書籍検索API</title>
+  </head>
+  <body>
+    <h1>書籍検索API</h1>
+    <input type="text" id="search" />
+    <button id="button">検索スタート！</button>
+    <div id="view"></div>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+      $(function() {
+        $("#button").on("click", function() {
+          const text = $("#search").val();
+          console.log(text);
+          const url = "https://www.googleapis.com/books/v1/volumes?q=" + text;
+          // getJSONメソッドでAPIから情報を取得
+          $.getJSON(url)
+            // 成功した時の処理。下記のdataの中にレスポンスが入っている
+            .done(function(data, textStatus, jqXHR) {
+              console.log(data.items);
+              const books = data.items;
+              console.log(books[0].volumeInfo.title);
+              // // ブラウザ上に出力するためのhtmlタグの文字列を入れる変数（＝箱）resultを用意する
+              let result = "";
+              // `バッククォートで囲むと文字列の続きで${変数}と書いて使える。いちいち文字列結合（＋）を使わなくてよくなる`;
+              for (let i = 0; i < books.length; i++) {
+                result += `<div class="card col-xs-12 col-md-4">
+                                      <div class="card-body">
+                                        <h4 class="card-title">
+                                          ${books[i].volumeInfo.title}
+                                        </h4>
+                                        <p class="card-text">category: ${books[i].volumeInfo.publishedDate}</p>
+                                        <a href="${books[i].volumeInfo.industryIdentifiers.infoLink}" class="btn btn-primary" target="blank">Go restaurant's Site</a>
+                                      </div>
+                                    </div>`;
+              }
+              // resultの中のhtmlタグを一気にid="view"の中につっこむ！
+              $("#view").html(result);
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+              console.log(jqXHR.status + textStatus + errorThrown);
+            })
+            .always(function() {
+              console.log("complete");
+            });
+        });
+      });
+    </script>
+  </body>
+</html>
